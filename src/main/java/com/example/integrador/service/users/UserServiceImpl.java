@@ -6,11 +6,20 @@ import com.example.integrador.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 @Service
 public class UserServiceImpl implements  IUserService{
     @Autowired
     private IUserRepository userRepository;
+
+    public UserServiceImpl(IUserRepository iUserRepository) {
+        this.userRepository = iUserRepository;
+    }
+    @Override
+    public List<User> findAllBook() {
+        return userRepository.findAll();
+    }
 
     @Override
     public User save(UserDto user) {
@@ -30,5 +39,15 @@ public class UserServiceImpl implements  IUserService{
             }
         }
         throw new UserNotFoundException();
+    }
+
+    @Override
+    public void deleteBook(String id) {
+
+    }
+
+    @Override
+    public User updateBook(User user) {
+        return null;
     }
 }
