@@ -4,18 +4,21 @@ import com.example.integrador.controllers.user.UserDto;
 import com.example.integrador.model.User;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public interface IUserService {
 
-    List<User> findAllBook();
+    List<User> findAllUser();
 
     User save(UserDto user);
 
     User findByEmail(String email);
 
-    void deleteBook(String id);
+    Optional<User> findByIdUser(String id);
 
-    User updateBook(User user);
+    void deleteUser(String id);
+
+    User updateUser(User user);
 
 }

@@ -17,7 +17,7 @@ public class UserServiceImpl implements  IUserService{
         this.userRepository = iUserRepository;
     }
     @Override
-    public List<User> findAllBook() {
+    public List<User> findAllUser() {
         return userRepository.findAll();
     }
 
@@ -42,12 +42,17 @@ public class UserServiceImpl implements  IUserService{
     }
 
     @Override
-    public void deleteBook(String id) {
-
+    public Optional<User> findByIdUser(String id){
+        return userRepository.findById(id);
     }
 
     @Override
-    public User updateBook(User user) {
-        return null;
+    public void deleteUser(String id) {
+        userRepository.deleteById(id);
+    }
+
+    @Override
+    public User updateUser(User user) {
+        return userRepository.save(user);
     }
 }
